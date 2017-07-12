@@ -1,0 +1,37 @@
+body {
+	background-image: url('./img/backgroung.jpg');
+}
+
+.gamemap {
+	margin: 50px auto;
+	border: 10px groove #607D8B;
+}
+
+.cell {
+	background-color: white;
+	float: left;
+	border: 0px solid grey;
+	background-repeat: no-repeat;
+	background-size: 44px;
+	background-image: url('./img/sky.png');
+}
+
+.grass {
+	background-image: url('./img/grass.png');
+}
+
+.wall {
+	background-image: url('./img/wall.png');
+}
+
+
+.hole { 
+	background-image: url('./img/DNIWE_BACK.png');
+}
+
+.hero {
+	background-image: url('./img/hero.png');
+}
+.block {
+    background-image: url('./img/block.png');
+}

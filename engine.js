@@ -40,4 +40,6 @@ $(document).ready(function(){
 		console.log('playing_matrix loaded');
 		return result;
 	}
+	
+	var engine = new Engine;
 }); 
