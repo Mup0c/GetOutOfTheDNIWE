@@ -1,5 +1,146 @@
+@font-face {
+    font-family: slkscr;
+    src: url('./fonts/slkscr.ttf');
+}
+
 body {
 	background-image: url('./img/backgroung.jpg');
+}
+
+header h1, header h2 {
+    text-align: center;
+    margin: 1;
+    font-family: "slkscr"
+}
+
+header h1 {
+	border-style: solid;
+	background-color: grey;
+    color: lightblue;
+    font-size: 80px;
+}
+
+
+header h2 {
+    color: lightgrey;
+    border-style: solid;
+	background-color: grey;
+    font-size: 20px;
+}
+
+#menu {
+    position: fixed;
+    bottom: 8px; /* Положение от нижнего края */
+    right: 8px; /* Положение от правого края */
+    top: 250px;
+    left: 8px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.90);
+    border: 2px solid grey;
+}
+
+#play-btn {
+    display: block;
+    margin: 0 auto;
+    background: #363536;
+    background-image: -webkit-linear-gradient(top, #363536, #86d8ff);
+    background-image: -moz-linear-gradient(top, #363536, #86d8ff);
+    background-image: -ms-linear-gradient(top, #363536, #86d8ff);
+    background-image: -o-linear-gradient(top, #363536, #86d8ff);
+    background-image: linear-gradient(to bottom, #363536, #86d8ff);
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    font-family: slkscr;
+    color: #ffffff;
+    font-size: 40px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+#play-btn:hover {
+  background: #757575;
+  background-image: -webkit-linear-gradient(top, #757575, #86d8ff);
+  background-image: -moz-linear-gradient(top, #757575, #86d8ff);
+  background-image: -ms-linear-gradient(top, #757575, #86d8ff);
+  background-image: -o-linear-gradient(top, #757575, #86d8ff);
+  background-image: linear-gradient(to bottom, #757575, #86d8ff);
+  text-decoration: none;
+}
+
+#play-btn:focus {
+    outline:0;
+}
+
+
+#win, #loose, #loading{
+	font-family: slkscr;
+    font-size: 60px;
+    display: none;
+    top: 250px;
+    left: 50%; 
+    width: 450px;
+    height: 450px; 
+    position: absolute; 
+    margin-left: -200px; 
+}
+
+#result {
+    padding-top: 80px;
+}
+
+#win {
+    color: green;
+}
+
+#loose {
+    color: red;
+}
+
+#loading{
+	color: lime;
+}
+
+
+.type-btn {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 5px;
+    font-family: slkscr;
+    color: #ffffff;
+    font-size: 20px;
+    background: #00627a;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: 0px;
+}
+
+.type-btn:hover {
+    background: #0088a6;
+    text-decoration: none;
+}
+
+.type-btn:focus {
+    outline:0;
+}
+
+#type-choose {
+    display: block;
+    top: 370px;
+	left: 50%; 
+	width: 450px;
+	height: 450px; 
+	position: absolute; 
+	margin-left: -170px; 
+
+}
+
+.active-btn {
+    background-color: #00CFDC;
+}
+
+.active-btn:hover {
+    background-color: #00CFDC;
 }
 
 .gamemap {

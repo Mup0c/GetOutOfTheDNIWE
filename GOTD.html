@@ -6,9 +6,34 @@
 		<link rel="stylesheet" type="text/css" href="graphics.css">
 		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="engine.js"></script>
+		<script type="text/javascript" src="UI.js"></script>
 		<script type="text/javascript" src="LevelGeneration.js"></script>
+        <audio autoplay loop><source src="music.mp3" type="audio/ogg"></audio>
 	</head>
 	<body>
+		<header>
+        	<h1 id="title">GET OUT OF THE DNIWE</h1>
+        	<h2 id="title">/ MOVE BLOCKS TO ESCAPE. USE NUMPAD OR ARROWS. DO NOT BE HIT BY FALLING BLOCK. \</h2>
+   		</header>
+   		<div id="menu">
+                <div id="result">
+                    <div id="win" >
+                        EXCELLENT
+                    </div>
+                    <div id="loose">
+                        GAME 0VER
+                    </div>
+					<div id="loading">
+                        LOADING.......
+                    </div>
+                    <div id="type-choose">
+                        <button id='type-0' class="type-btn active-btn">EASY</button>
+                        <button id='type-1' class="type-btn">MEDIUM</button>
+                        <button id='type-2' class="type-btn">HARD</button>
+                    </div>
+                    <button id="play-btn">PLAY</button>
+                </div>  
+            </div>
 		<div class="gamemap" id='id_gamemap'>
 	</body>
 </html>
