@@ -12,4 +12,5 @@ const BLOCK_INDEX = 2;
 const HOLE_INDEX = 3;
 const GRASS_INDEX = 4;
 const HERO_INDEX = 5;
+const WALL_START_INDEX = EMPTY_BLOCK_INDEX + 1;
 
