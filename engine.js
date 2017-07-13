@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
 	
+	var game_over = false;
 	var playing_matrix = [];
 
 	var Engine = function(){
@@ -41,5 +42,27 @@ $(document).ready(function(){
 		return result;
 	}
 	
-	var engine = new Engine;
+	
+	
+	var engine;
+	
+	$('#play-btn').click(function () {
+		console.log('___________');
+		console.log(game_over);
+		$('#play-btn').hide();	
+		$('#loading').show();
+		$('#win').hide();
+		$('#loose').hide();
+		$('#type-choose').hide();
+		setTimeout(function(){
+			game_over = false;
+			$('#id_gamemap').empty();
+			console.log('gamemap cleared');
+			engine = new Engine();
+			$('#menu').hide();
+			$('#loading').hide();
+			$('#type-choose').show();
+			$('#play-btn').show()
+		}, 2001);
+	});
 }); 
