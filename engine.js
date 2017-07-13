@@ -1,6 +1,7 @@
 "use strict"
 
 $(document).ready(function(){
+	const SPAWN_COORD_Y = (FIELD_HEIGHT - 2);
 	
 	var game_over = false;
 	var playing_matrix = [];
@@ -10,6 +11,9 @@ $(document).ready(function(){
 		
 		create_field(playing_matrix);
 		console.log(playing_matrix);
+		
+		this.spawn_hero(playing_matrix);		
+		console.log('hero created: ' + this.hero_coords);
 		
 		console.log('engine loaded.');
 	}
@@ -42,7 +46,20 @@ $(document).ready(function(){
 		return result;
 	}
 	
+	function get_random_coord(){
+		return Math.round(Math.random() * (FIELD_WIDTH - WALL_WIDTH * 2 - 1)) + WALL_WIDTH;
+	}
 	
+	
+	Engine.prototype.spawn_hero = function(playing_matrix){
+		let spawn_coord_x = get_random_coord();
+		this.hero_coords = [spawn_coord_x, SPAWN_COORD_Y];
+		var id = SPAWN_COORD_Y + '-' + spawn_coord_x;
+		playing_matrix[this.hero_coords[1]][this.hero_coords[0]] = HERO_INDEX;
+		console.log('hero index = ' + playing_matrix[this.hero_coords[1]][this.hero_coords[0]]);
+		$('#' + id).addClass('hero');
+		
+	}
 	
 	var engine;
 	
