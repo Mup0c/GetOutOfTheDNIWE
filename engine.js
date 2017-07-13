@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
 	const SPAWN_COORD_Y = (FIELD_HEIGHT - 2);
+	const HERO_FALLING_SPEED = 100;
 	
 	var game_over = false;
 	var playing_matrix = [];
@@ -59,6 +60,51 @@ $(document).ready(function(){
 		console.log('hero index = ' + playing_matrix[this.hero_coords[1]][this.hero_coords[0]]);
 		$('#' + id).addClass('hero');
 		
+	}
+	
+	move_to = function(dx, dy) {
+		if (game_over) return;
+		
+		console.log('move to: ' + dx + ' ' + dy);
+
+		let x = engine.hero_coords[0], y = engine.hero_coords[1];
+
+		if (dy < 0 && ((playing_matrix[y + 1][x]) == HOLE_INDEX || playing_matrix[y + 1][x] == SKY_INDEX))
+			return;
+
+		if (playing_matrix[y + dy][x + dx] == BLOCK_INDEX)
+			move_block(x + dx, y + dy, dx);
+		
+		if (playing_matrix[y + dy][x + dx] == GRASS_INDEX || playing_matrix[y + dy][x + dx] == WALL_INDEX || playing_matrix[y + dy][x + dx] == BLOCK_INDEX)
+			return;
+		
+		playing_matrix[y][x] = (y < EMPTY_BLOCK_INDEX + 2) ? SKY_INDEX : HOLE_INDEX;
+
+		engine.hero_coords[0] += dx;
+		engine.hero_coords[1] += dy;
+		
+		playing_matrix[y + dy][x + dx] = HERO_INDEX;
+		
+		repaint_field(playing_matrix);
+		
+		drop_hero();
+
+		if (engine.hero_coords[0] === 1 || engine.hero_coords[0] === FIELD_WIDTH - 2){ // win
+			$('#menu').show();
+			$('#win').show();
+			game_over = true;
+		}
+	}
+	
+	var drop_hero = function() {
+		for (let i = engine.hero_coords[1]; i < FIELD_HEIGHT; ++i)
+			if (playing_matrix[i][engine.hero_coords[0]] == SKY_INDEX || playing_matrix[i][engine.hero_coords[0]] == HOLE_INDEX) {
+				
+				setTimeout(function(){
+					move_to(0, 1);
+					drop_hero();
+				}, HERO_FALLING_SPEED);
+			}
 	}
 	
 	var engine;
