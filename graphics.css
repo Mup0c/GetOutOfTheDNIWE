@@ -17,7 +17,7 @@ header h1 {
 	border-style: solid;
 	background-color: grey;
     color: lightblue;
-    font-size: 80px;
+    font-size: 50px;
 }
 
 
@@ -26,6 +26,17 @@ header h2 {
     border-style: solid;
 	background-color: grey;
     font-size: 20px;
+}
+
+#block_counter{
+	text-align: center;
+    margin: 1;
+    font-family: "slkscr";
+	color: cyan;
+    border-style: solid;
+	background-color: grey;
+    font-size: 30px;
+	display: none;
 }
 
 #menu {
@@ -121,17 +132,17 @@ header h2 {
 }
 
 .type-btn:focus {
-    outline:0;
+    outline: 0;
 }
 
 #type-choose {
     display: block;
     top: 370px;
 	left: 50%; 
-	width: 450px;
+	width: 700px;
 	height: 450px; 
 	position: absolute; 
-	margin-left: -170px; 
+	margin-left: -230px; 
 
 }
 
@@ -173,6 +184,27 @@ header h2 {
 .hero {
 	background-image: url('./img/hero.png');
 }
+
 .block {
-    background-image: url('./img/block.png');
+	background-image: url('./img/block.png');
+}
+
+.dynamite {
+	background-image: url('./img/dynamite.png');
+}
+
+.barrel_sky {
+	background-image: url('./img/barrel_sky.png');
+}
+
+.barrel_hole {
+	background-image: url('./img/barrel_hole.png');
+}
+
+.boom_sky {
+	background-image: url('./img/boom_sky.png');
+}
+
+.boom_hole {
+	background-image: url('./img/boom_hole.png');
 }
