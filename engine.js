@@ -317,8 +317,11 @@ $(document).ready(function(){
 			DYNAMITE_SPAWNED = true;
 			let floor_index = FIELD_HEIGHT - 2;
 			for (let j = WALL_WIDTH; j < FIELD_WIDTH - WALL_WIDTH - 1; j++)
-				if ((j % 2) == 0)
-					playing_field[floor_index][j] = 'DYNAMITE';
+			    if ((j % 2) == 0) {
+			        if (playing_field[floor_index][j] == 'HERO')
+			            move_to(0, -1);
+			        playing_field[floor_index][j] = 'DYNAMITE';
+			    }
 			repaint_field(playing_field);
 			console.log(playing_field);
 			Engine.prototype.arcade_annihilate(playing_field);
