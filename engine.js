@@ -19,10 +19,12 @@ $(document).ready(function(){
 	var engine;
 	var IS_ARCADE = false;
 	var DYNAMITE_SPAWNED = false;
+	var block_count = 0;
+
 
 	var Engine = function(){
 		playing_field = this.generate_playing_field();
-		
+		block_count = 0;
 		create_field(playing_field);
 		console.log(playing_field);
 		
@@ -221,7 +223,7 @@ $(document).ready(function(){
 	
 	function detanete(i, j){
 		
-		if (IS_ARCADE) FLAG = false;
+		if (!DYNAMITE_SPAWNED) DYNAMITE_SPAWNED = true;
 		
 		if (playing_field[i][j + 1] == 'HERO' || playing_field[i][j - 1] == 'HERO' ||
 		playing_field[i + 1][j] == 'HERO' || playing_field[i - 1][j] == 'HERO')
@@ -290,6 +292,8 @@ $(document).ready(function(){
 
  	Engine.prototype.spawn_block = function(playing_field) {
 	if (game_over) return;
+	block_count += 1*1;
+	$('#block_counter').text('Score: ' + block_count);
 
 		let spawn_block_coord = get_random_coord();
 
@@ -329,6 +333,7 @@ $(document).ready(function(){
 	}
 
 	var set_diff = function(){
+		$('#block_counter').hide();
 		switch (Difficulty) {
 			case ('easy'): {
 				IS_ARCADE = false;
@@ -376,6 +381,7 @@ $(document).ready(function(){
 				FIELD_HEIGHT = 20;
 				BOOM_DELAY = 500;
 				SPAWN_COORD_Y = (FIELD_HEIGHT - 2);
+				$('#block_counter').show();
 				break; 
 			}
 		}
