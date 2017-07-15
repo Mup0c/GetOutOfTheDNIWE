@@ -38,7 +38,7 @@ $(document).ready(function(){
 		if (IS_ARCADE)
 			timeouts_id.push(setTimeout(function(){
 				engine.arcade_annihilate(playing_field)
-			}, 500));
+			}, 1300));
 	
 	}
 
@@ -325,7 +325,9 @@ $(document).ready(function(){
 			repaint_field(playing_field);
 			console.log(playing_field);
 			Engine.prototype.arcade_annihilate(playing_field);
-		}, BLOCK_SPAWN_SPEED * 12));
+			BLOCK_SPAWN_SPEED -= 5*1;
+			BLOCK_FALLING_SPEED -= 5*1;
+		}, BLOCK_SPAWN_SPEED * 15));
 	}
 	
 	function stop_game(result){
@@ -377,10 +379,10 @@ $(document).ready(function(){
 			case ('arcade'): {
 				IS_ARCADE = true;
 				BARREL_CHANCE = 20;
-				DYNAMITE_CHANCE = 30;
+				DYNAMITE_CHANCE = 15;
 				BLOCK_SPAWN_SPEED = 800;
 				BLOCK_FALLING_SPEED = 400;
-				FIELD_WIDTH = 16;
+				FIELD_WIDTH = 15;
 				FIELD_HEIGHT = 20;
 				BOOM_DELAY = 500;
 				SPAWN_COORD_Y = (FIELD_HEIGHT - 2);
